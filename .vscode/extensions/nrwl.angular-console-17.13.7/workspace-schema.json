@@ -1,0 +1,747 @@
+
+  {
+    "title": "JSON schema for Nx workspaces",
+    "id": "https://nx.dev",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "number",
+        "enum": [1, 2]
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": { "version": { "const": 1 } },
+          "required": ["version"]
+        },
+        "then": {
+          "description": "Read more about this workspace file at https://nx.dev/latest/angular/getting-started/configuration",
+          "properties": {
+            "projects": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "architect": {
+                    "description": "Configures all the targets which define what tasks you can run against the project",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "builder": {
+                          "description": "The function that Nx will invoke when you run this architect",
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "object"
+                        },
+                        "configurations": {
+                          "description": "provides extra sets of values that will be merged into the options map",
+                          "additionalProperties": {
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "allOf": [
+                       
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/architect:true" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/architect:false" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/architect:allOf" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/architect:concat" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:app-shell" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/app-shell/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/app-shell/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:browser" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/browser/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/browser/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:dev-server" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:extract-i18n" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/extract-i18n/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/extract-i18n/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:karma" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/karma/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/karma/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:protractor" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/protractor/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/protractor/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:server" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-angular:ng-packagr" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/ng-packagr/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/ng-packagr/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-webpack:build" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-webpack:webpack" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-webpack:dev-server" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "builder": { "const": "@angular-devkit/build-webpack:webpack-dev-server" } },
+    "required": ["builder"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": { "version": { "const": 2 } },
+          "required": ["version"]
+        },
+        "then": {
+          "description": "Read more about this workspace file at https://nx.dev/latest/react/getting-started/configuration",
+          "properties": {
+           "projects": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                   "type": "object",
+                   "properties": {
+                      "targets": {
+                        "description": "Configures all the targets which define what tasks you can run against the project",
+                        "additionalProperties": {
+                          "type": "object",
+                          "properties": {
+                            "executor": {
+                              "description": "The function that Nx will invoke when you run this target",
+                              "type": "string"
+                            },
+                            "options": {
+                              "type": "object"
+                            },
+                            "configurations": {
+                              "description": "provides extra sets of values that will be merged into the options map",
+                              "additionalProperties": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          "allOf": [
+                           
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/architect:true" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/architect:false" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/noop-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/architect:allOf" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/architect:concat" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/architect/builders/operator-schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:app-shell" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/app-shell/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/app-shell/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:browser" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/browser/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/browser/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:dev-server" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:extract-i18n" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/extract-i18n/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/extract-i18n/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:karma" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/karma/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/karma/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:protractor" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/protractor/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/protractor/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:server" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-angular:ng-packagr" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/ng-packagr/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-angular/src/builders/ng-packagr/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-webpack:build" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-webpack:webpack" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-webpack:dev-server" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+,
+{
+  "if": {
+    "properties": { "executor": { "const": "@angular-devkit/build-webpack:webpack-dev-server" } },
+    "required": ["executor"]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json"
+      },
+      "configurations": {
+        "additionalProperties": {
+          "$ref": "file:///c:/Users/silca/Desktop/Bootcamp/AngularNew/comunication-app/node_modules/@angular-devkit/build-webpack/src/webpack-dev-server/schema.json",
+          "required": []
+        }
+      }
+    }
+  }
+}
+
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
